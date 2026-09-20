@@ -1,6 +1,6 @@
 const twoModule = () => {
     const two = 'two'
-    console.log(two)
+    console.log('sk')
 }
 
 export default twoModule
