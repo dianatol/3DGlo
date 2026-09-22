@@ -3,6 +3,7 @@ const modal = () => {
     const modal = document.querySelector('.popup')
     const closeBtn = modal.querySelector('.popup-close')
 
+
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
 
