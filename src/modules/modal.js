@@ -1,44 +1,47 @@
+import { animate } from "./helpers"
+
 const modal = () => {
+
     const buttons = document.querySelectorAll('.popup-btn')
     const modal = document.querySelector('.popup')
-
 
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
 
+            modal.style.display = 'block'
+
             if (window.innerWidth < 768) {
-                modal.style.display = 'block'
                 return
             }
 
-            modal.style.display = 'block'
             modal.style.opacity = '0'
             modal.style.transform = 'translateY(-50px)'
 
-            let opacity = 0
-            let position = -50
+            animate({
+                duration: 500,
 
-            const animate = () => {
-                opacity += 0.05
-                position += 2
+                timing(timeFraction) {
+                    return timeFraction
+                },
 
-                modal.style.opacity = opacity
-                modal.style.transform = `translateY(${position}px)`
-
-                if (opacity < 1) {
-                    requestAnimationFrame(animate)
+                draw(progress) {
+                    modal.style.opacity = progress
+                    modal.style.transform =
+                        `translateY(${progress * 50 - 50}px)`
                 }
-            }
-
-            requestAnimationFrame(animate)
+            })
         })
     })
 
-
     modal.addEventListener('click', (e) => {
-        if(!e.target.closest('.popup-content') || e.target.classList.contains('popup-close'))  {
+
+        if (
+            !e.target.closest('.popup-content') ||
+            e.target.classList.contains('popup-close')
+        ) {
             modal.style.display = 'none'
         }
+
     })
 }
 
