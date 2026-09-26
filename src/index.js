@@ -4,11 +4,15 @@ import modal from './modules/modal'
 import calculate from './modules/calculate'
 import forms from './modules/form'
 import tabs from './modules/tabs'
+import slider from './modules/slider'
+import createDots from './modules/dots'
 
 
-timer('24 september 2026')
+timer('30 september 2026')
 menu()
 modal()
 calculate()
 forms()
 tabs()
+createDots()
+slider()
